@@ -1,16 +1,16 @@
 from __future__ import annotations
 
 import itertools
-import json
 import os
-from pathlib import Path
 from typing import Iterable, List
 
-from . import paths
 from .logging_utils import get_logger
 
 
 LOGGER = get_logger(__name__)
+
+
+ENV_KEY_PREFIX = "GEMINI_API_KEY_"
 
 
 class GeminiKeyManager:
@@ -27,21 +27,13 @@ class GeminiKeyManager:
 
     @classmethod
     def from_defaults(cls) -> "GeminiKeyManager":
-        env_keys = os.getenv("GEMINI_API_KEYS")
-        if env_keys:
-            LOGGER.info("Loading Gemini keys from GEMINI_API_KEYS")
-            return cls(env_keys.split(","))
-
-        file_path = paths.GEMINI_KEY_FILE
-        if file_path.exists():
-            LOGGER.info("Loading Gemini keys from %s", file_path)
-            with Path(file_path).open("r", encoding="utf-8") as handle:
-                data = json.load(handle)
-            return cls(data.get("keys", []))
-
-        raise FileNotFoundError(
-            "Set GEMINI_API_KEYS env var or populate config/gemini_keys.json"
-        )
+        keys = _collect_env_keys()
+        if not keys:
+            raise EnvironmentError(
+                "Set numbered GEMINI_API_KEY_<n> environment variables."
+            )
+        LOGGER.info("Loaded %d Gemini keys from environment", len(keys))
+        return cls(keys)
 
     @property
     def current(self) -> str:
@@ -57,3 +49,15 @@ class GeminiKeyManager:
     @property
     def all_keys(self) -> List[str]:
         return list(self._keys)
+
+
+def _collect_env_keys() -> List[str]:
+    keys: List[str] = []
+    index = 1
+    while True:
+        value = os.getenv(f"{ENV_KEY_PREFIX}{index}")
+        if not value:
+            break
+        keys.append(value.strip())
+        index += 1
+    return [k for k in keys if k]

@@ -13,9 +13,6 @@ CUAD_DIR = DATA_DIR / "CUAD_v1"
 CUAD_PDF_DIR = CUAD_DIR / "full_contract_pdf"
 CUAD_TXT_DIR = CUAD_DIR / "full_contract_txt"
 
-CONFIG_DIR = PROJECT_ROOT / "config"
-GEMINI_KEY_FILE = CONFIG_DIR / "gemini_keys.json"
-
 MEDICAL_VECTOR_DIR = ARTIFACTS_DIR / "medical_chroma"
 COMPLIANCE_VECTOR_DIR = ARTIFACTS_DIR / "compliance_chroma"
 
