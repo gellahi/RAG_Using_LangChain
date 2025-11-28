@@ -1,0 +1,17 @@
+[
+  {"id": "R1", "category": "Data Privacy", "description": "Contracts must describe how customer data is collected, stored, and deleted, referencing applicable privacy laws (GDPR, CCPA).", "severity": "critical"},
+  {"id": "R2", "category": "Access Control", "description": "Documents must define authentication and authorization mechanisms for any system integrations or shared environments.", "severity": "high"},
+  {"id": "R3", "category": "Incident Response", "description": "Incident response timelines and notification duties must be stated for security events affecting either party.", "severity": "high"},
+  {"id": "R4", "category": "Business Continuity", "description": "Vendors must maintain business continuity or disaster recovery plans with testing expectations.", "severity": "medium"},
+  {"id": "R5", "category": "Subprocessor Management", "description": "Use of subcontractors/subprocessors requires written approval and flow-down of all security obligations.", "severity": "medium"},
+  {"id": "R6", "category": "Encryption", "description": "Contracts must require encryption of data in transit and at rest using contemporary standards.", "severity": "high"},
+  {"id": "R7", "category": "Audit Rights", "description": "Customer must retain audit/assessment rights at least annually, including document review or on-site visits.", "severity": "medium"},
+  {"id": "R8", "category": "Termination", "description": "Termination clauses must cover data return/destruction and continued confidentiality obligations.", "severity": "high"},
+  {"id": "R9", "category": "Regulatory Alignment", "description": "Text should cite adherence to relevant industry standards (HIPAA, SOC 2, ISO 27001, PCI DSS) when applicable.", "severity": "medium"},
+  {"id": "R10", "category": "Training", "description": "Vendors must provide evidence of periodic security and privacy training for personnel handling sensitive data.", "severity": "medium"},
+  {"id": "R11", "category": "Vulnerability Management", "description": "System maintenance clauses must include patching timelines or vulnerability remediation expectations.", "severity": "high"},
+  {"id": "R12", "category": "Third-Party Risk", "description": "Any data sharing with affiliates or partners must require equivalent safeguards and notification to the customer.", "severity": "medium"},
+  {"id": "R13", "category": "Intellectual Property", "description": "Agreements must clearly state IP ownership, licensing rights, and restrictions on derivative use of shared materials.", "severity": "high"},
+  {"id": "R14", "category": "Payment Security", "description": "Clauses handling payment data must reference PCI DSS compliance or equivalent protections.", "severity": "medium"},
+  {"id": "R15", "category": "Confidentiality", "description": "Standard confidentiality clauses must outline definition of confidential information, exclusions, and duration of duty.", "severity": "critical"}
+]
